@@ -9,6 +9,7 @@
 #include "payload_file_reader.h"
 #include "gb_rom_values_eng_lz10_bin.h"
 #include "gb_rom_values_fre_lz10_bin.h"
+#include "gb_rom_values_jpn_lz10_bin.h"
 #include "gb_gen1_payloads_RB_lz10_bin.h"
 #include "gb_gen1_payloads_Y_lz10_bin.h"
 #include "gb_gen2_payloads_lz10_bin.h"
@@ -291,6 +292,9 @@ bool Pokemon_Party::load_gb_rom()
 		break;
 	case FRE_ID:
 		compressed_rom_table = gb_rom_values_fre_lz10_bin;
+		break;
+	case JPN_ID:
+		compressed_rom_table = gb_rom_values_jpn_lz10_bin;
 		break;
 	default:
 		// no rom table for this language
