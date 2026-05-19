@@ -165,18 +165,18 @@ void Pokemon_Party::start_link()
 	{
 		if (curr_gb_rom.generation == 1 && curr_gb_rom.version)
 		{
-			box.loadData(1, ENGLISH, gen1_rb_debug_box_data);
+			box.loadData(1, (Language)curr_gb_rom.language, gen1_rb_debug_box_data);
 		}
 		else
 		{
-			box.loadData(2, ENGLISH, gen2_debug_box_data);
+			box.loadData(2,(Language)curr_gb_rom.language, gen2_debug_box_data);
 		}
 	}
 	else
 	{
 		u16 debug_charset[256];
 
-		load_localized_charset(debug_charset, 3, ENGLISH);
+		load_localized_charset(debug_charset, 3, (Language)curr_gb_rom.language);
 		init_payload();
 
 		setup(debug_charset);
@@ -208,7 +208,7 @@ void Pokemon_Party::continue_link(bool cancel_connection)
 	{
 		u16 debug_charset[256];
 
-		load_localized_charset(debug_charset, 3, ENGLISH);
+		load_localized_charset(debug_charset, 3, (Language)curr_gb_rom.language);
 
 		last_error = loop(&box_data_array[0], current_payload, &curr_gb_rom, &box, debug_charset, cancel_connection);
 	}
