@@ -1,7 +1,52 @@
 #include "gb_rom_values/gb_rom_values.h"
 
 const struct GB_ROM gb_rom_values_jpn[] = {
-    
+    {// ENG_SILVER
+     .language = ENG_ID,
+     .version = SILVER_ID,
+     .generation = 2,
+     .method = METHOD_GEN2,
+     .payload_size = 672,
+     .box_data_size = 0x44E,
+
+     .print_string_start = 0xC442,
+     .stack_overwrite_location = 0xDFCB, // Found by seeing where 772C is stored in the stack, 772C is the code that calls PlaceString
+     .short_pkmn_name = 0x4E,
+     .pointer_pkmn_name = 0,
+     .padding_1 = 0,
+
+     .clearScreen = 0x000EB4, //Shifted
+     .CableClub_TextBoxBorder = 0x0A4D8E, // LinkTextboxAtHL shifted
+     .placeString = 0x000F46, //Shifted
+     .Serial_ExchangeBytes = 0x070F, //Shifted
+     ._RemovePokemon = 0x0362E2, // RemoveMonFromPartyOrBox Shifted
+     .SaveSAVtoSRAM1 = 0,
+     .SaveSAVtoSRAM2 = 0,
+     .LoadCurrentBoxData = 0,
+     .OpenSRAM = 0x00309D, //Shifted
+     .SaveBox = 0x054D88, //Shifted
+     .Bankswitch = 0,
+     .SoftReset = 0x05AF, //Why tf did this shift?!?
+     .CloseSRAM = 0,
+     .garbageDataLocation = 0x0654,
+
+     .wRemoveMonFromBox = 0x01D002,   // wPokemonWithdrawDepositParameter Shifted
+     .wBoxCount = 0x01AD10,           // sBoxCount Shifted same as english crystal lol
+     .wWhichPokemon = 0x01CFFF,       // wCurPartyMon Omega shift from D005 may need to recheck 
+     .wBoxDataStart = 0xAD6C,         // sBoxStart
+     .wBoxDataEnd = 0xB1BA,           // sBoxEnd
+     .wSerialEnemyDataBlock = 0xDD40, // wOTPartyData
+     .wEnemyMonSpecies = 0x01D0EF,
+
+     .wSerialEnemyMonsPatchList = 0xC5D0,                // wOTPatchLists
+     .wSerialOtherGameboyRandomNumberListBlock = 0xD0EF, // wOTLinkBattleRNData
+     .hSerialConnectionStatus = 0xFFCD,
+
+     .transferStringLocation = 0xC444,
+     .textBorderUppLeft = 0xC42F,
+     .textBorderWidth = 12,
+     .textBorderHeight = 1,
+     .padding_2 = 0},
     {// JPN_CRYSTAL
      .language = JPN_ID,
      .version = CRYSTAL_ID,
@@ -11,8 +56,7 @@ const struct GB_ROM gb_rom_values_jpn[] = {
      .box_data_size = 0x44E, // not known but probably same
 
      .print_string_start = 0xC4B7, //Shifted
-     .stack_overwrite_location = 0xE0BB, // Found by seeing where  0x57AB is stored in the stack,  0x57AB is the code that calls PlaceString (PlaceTradePartnerNamesAndParty) in the JP version same as eng this was a nightmare to find just to be back in the same spot.
-     .short_pkmn_name = 0x4E, // not found probably same
+     .stack_overwrite_location = 0xC0BB, // Found by seeing where  772C is stored in the stack,  772C is the code that calls PlaceString (PlaceTradePartnerNamesAndParty). if you want to find this look at SP value could be C0BD
      .pointer_pkmn_name = 0,
      .padding_1 = 0,
 
@@ -32,7 +76,7 @@ const struct GB_ROM gb_rom_values_jpn[] = {
      .garbageDataLocation = 0x0770, //same
 
      .wRemoveMonFromBox = 0x01D0CB,   // wPokemonWithdrawDepositParameter MONSTER shift
-     .wBoxCount = 0x01AD10,           // sBoxCount same 
+     .wBoxCount = 0x01AD10,           // sBoxCount Shifted
      .wWhichPokemon = 0x01D0C9,       // wCurPartyMon shifted
      .wBoxDataStart = 0x01AD10,       // sBox  probably the same
      .wBoxDataEnd = 0x01B15E,         // sBoxEnd  probably the same
