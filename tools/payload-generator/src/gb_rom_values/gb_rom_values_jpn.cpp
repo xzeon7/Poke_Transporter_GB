@@ -57,9 +57,10 @@ const struct GB_ROM gb_rom_values_jpn[] = {
 
      .print_string_start = 0xC4B7, //Shifted
      .stack_overwrite_location = 0xC0BB, // Found by seeing where  772C is stored in the stack,  772C is the code that calls PlaceString (PlaceTradePartnerNamesAndParty). if you want to find this look at SP value could be C0BD
+     .short_pkmn_name = 0x4E,
      .pointer_pkmn_name = 0,
      .padding_1 = 0,
-
+     
      .clearScreen = 0x000FB2, // shifted
      .CableClub_TextBoxBorder = 0x0A4E80, // LinkTextboxAtHL mega shifted 
      .placeString = 0x001057, // shifted
