@@ -56,7 +56,7 @@ const struct GB_ROM gb_rom_values_jpn[] = {
      .box_data_size = 0x44E, // not known but probably same
 
      .print_string_start = 0xC4B7, //Shifted
-     .stack_overwrite_location = 0xC0BB, // Found by seeing where  772C is stored in the stack,  772C is the code that calls PlaceString (PlaceTradePartnerNamesAndParty). if you want to find this look at SP value could be C0BD
+     .stack_overwrite_location = 0xC0BD, // Found by seeing where  772C is stored in the stack,  772C is the code that calls PlaceString (PlaceTradePartnerNamesAndParty). if you want to find this look at SP value could be C0BD
      .short_pkmn_name = 0x4E,
      .pointer_pkmn_name = 0,
      .padding_1 = 0,
