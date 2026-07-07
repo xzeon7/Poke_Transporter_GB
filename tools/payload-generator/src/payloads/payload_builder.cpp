@@ -669,7 +669,7 @@ void init_payload(byte *payload_buffer, const GB_ROM &curr_rom, int type, bool d
         }*/
     }
     
-    else if ((curr_rom.generation == 2 && curr_rom.language == JPN_ID && curr_rom.version == CRYSTAL_ID))
+    else if ((curr_rom.generation == 2 && curr_rom.version == CRYSTAL_ID))
     
     {
 
